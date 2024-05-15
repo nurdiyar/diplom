@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <div class="page-heading about-page-heading" id="top" style="background: none">
+        <div class="container">
+            <h4 style="display: inline">{% trans "Status:" %} </h4>
+            {% if ticket.is_open %}
+                <h4 style="color: #008000; display: inline">{% trans "Open" %}</h4>
+            {% else %}
+                <h4 style="color: #ff0000; display: inline">{% trans "Closed" %}</h4>
+            {% endif %}
+            <br>
+            <br>
+            <h4>Email:</h4>
+            <p>{{ ticket.email }}</p>
+            <br>
+            <h4>Text:</h4>
+            <p>{{ ticket.text }}</p>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% if ticket.is_open %}
+                    <input type="submit" value="Close Ticket">
+                    <input type="hidden" name="is_open" value="0">
+                {% else %}
+                    <input type="submit" value="Open Ticket">
+                    <input type="hidden" name="is_open" value="1">
+                {% endif %}
+                <input type="hidden" name="id" value="{{ ticket.id }}">
+            </form>
+        </div>
+    </div>
+{% endblock content %}

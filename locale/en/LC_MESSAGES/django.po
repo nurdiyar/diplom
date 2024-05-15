@@ -1,0 +1,505 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-15 08:27+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\core\settings.py:18
+msgid "English"
+msgstr ""
+
+#: .\core\settings.py:19
+msgid "Russian"
+msgstr ""
+
+#: .\shopapp\models.py:34 .\shopapp\models.py:45 .\shopapp\models.py:67
+msgid "name"
+msgstr ""
+
+#: .\shopapp\models.py:68
+msgid "description"
+msgstr ""
+
+#: .\templates\about.html:11
+msgid "About Our Company"
+msgstr ""
+
+#: .\templates\about.html:12 .\templates\contact.html:12
+msgid "Awesome, clean &amp; creative HTML5 Template"
+msgstr ""
+
+#: .\templates\about.html:31
+msgid "About Us &amp; Our Skills"
+msgstr ""
+
+#: .\templates\about.html:32
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon "
+"tempor incididunt ut labore."
+msgstr ""
+
+#: .\templates\about.html:34
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod "
+"kon tempor incididunt ut labore."
+msgstr ""
+
+#: .\templates\about.html:36
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon "
+"tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, "
+"quis nostrud exercitation ullamco laboris nisi ut aliquip."
+msgstr ""
+
+#: .\templates\about.html:56
+msgid "Our Amazing Team"
+msgstr ""
+
+#: .\templates\about.html:57 .\templates\about.html:135
+#: .\templates\about.html:171 .\templates\contact.html:34
+#: .\templates\contact.html:72 .\templates\index.html:121
+#: .\templates\index.html:176 .\templates\index.html:231
+#: .\templates\index.html:341 .\templates\index.html:426
+msgid ""
+"Details to details is what makes Hexashop different from the other themes."
+msgstr ""
+
+#: .\templates\about.html:77 .\templates\about.html:98
+#: .\templates\about.html:119
+msgid "Product Caretaker"
+msgstr ""
+
+#: .\templates\about.html:134
+msgid "Our Services"
+msgstr ""
+
+#: .\templates\about.html:140
+msgid "Synther Vaporware"
+msgstr ""
+
+#: .\templates\about.html:141 .\templates\about.html:148
+#: .\templates\about.html:155
+msgid ""
+"Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod "
+"temp incididunt ut labore, et dolore quis ipsum suspend."
+msgstr ""
+
+#: .\templates\about.html:147
+msgid "Locavore Squidward"
+msgstr ""
+
+#: .\templates\about.html:154
+msgid "Health Gothfam"
+msgstr ""
+
+#: .\templates\about.html:170 .\templates\contact.html:71
+#: .\templates\index.html:425
+#, python-format
+msgid "By Subscribing To Our Newsletter You Can Get 30%% Off"
+msgstr ""
+
+#: .\templates\about.html:197 .\templates\contact.html:98
+#: .\templates\index.html:454
+msgid "Store Location:"
+msgstr ""
+
+#: .\templates\about.html:198 .\templates\contact.html:99
+#: .\templates\index.html:455
+msgid "Phone:"
+msgstr ""
+
+#: .\templates\about.html:199 .\templates\contact.html:100
+#: .\templates\index.html:456
+msgid "Office Location:"
+msgstr ""
+
+#: .\templates\about.html:204 .\templates\contact.html:105
+#: .\templates\index.html:461
+msgid "Work Hours:"
+msgstr ""
+
+#: .\templates\about.html:205 .\templates\contact.html:106
+#: .\templates\index.html:462 .\templates\profile.html:9
+msgid "Email:"
+msgstr ""
+
+#: .\templates\about.html:206 .\templates\contact.html:107
+#: .\templates\index.html:463
+msgid "Social Media:"
+msgstr ""
+
+#: .\templates\base.html:61
+msgid "Cart"
+msgstr ""
+
+#: .\templates\base.html:66
+msgid "Language"
+msgstr ""
+
+#: .\templates\base.html:122
+msgid "Shopping &amp; Categories"
+msgstr ""
+
+#: .\templates\base.html:124
+msgid "Men’s Shopping"
+msgstr ""
+
+#: .\templates\base.html:125
+msgid "Women’s Shopping"
+msgstr ""
+
+#: .\templates\base.html:126
+msgid "Kid's Shopping"
+msgstr ""
+
+#: .\templates\base.html:130
+msgid "Useful Links"
+msgstr ""
+
+#: .\templates\base.html:132
+msgid "Homepage"
+msgstr ""
+
+#: .\templates\base.html:133
+msgid "About Us"
+msgstr ""
+
+#: .\templates\base.html:134 .\templates\base.html:141
+msgid "Help"
+msgstr ""
+
+#: .\templates\base.html:135 .\templates\contact.html:11
+msgid "Contact Us"
+msgstr ""
+
+#: .\templates\base.html:139
+msgid "Help &amp; Information"
+msgstr ""
+
+#: .\templates\base.html:142
+msgid "FAQ's"
+msgstr ""
+
+#: .\templates\base.html:143
+msgid "Shipping"
+msgstr ""
+
+#: .\templates\base.html:144
+msgid "Tracking ID"
+msgstr ""
+
+#: .\templates\base.html:149
+msgid "Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved."
+msgstr ""
+
+#: .\templates\base.html:150
+msgid "Design:"
+msgstr ""
+
+#: .\templates\cart_detail.html:8
+msgid "Cart Detail:"
+msgstr ""
+
+#: .\templates\cart_detail.html:11
+msgid "Product:"
+msgstr ""
+
+#: .\templates\cart_detail.html:12
+msgid "Price:"
+msgstr ""
+
+#: .\templates\cart_detail.html:13
+msgid "Image:"
+msgstr ""
+
+#: .\templates\cart_detail.html:14
+msgid "Action:"
+msgstr ""
+
+#: .\templates\cart_detail.html:29
+msgid "Total Products:"
+msgstr ""
+
+#: .\templates\cart_detail.html:30
+msgid "Total Price:"
+msgstr ""
+
+#: .\templates\cart_detail.html:31
+msgid "Checkout"
+msgstr ""
+
+#: .\templates\checkout.html:13
+msgid "Person Name"
+msgstr ""
+
+#: .\templates\checkout.html:19
+msgid "Card Number"
+msgstr ""
+
+#: .\templates\checkout.html:25
+msgid "Expiry"
+msgstr ""
+
+#: .\templates\checkout.html:36
+msgid "Delivery"
+msgstr ""
+
+#: .\templates\checkout.html:42
+msgid "Country"
+msgstr ""
+
+#: .\templates\checkout.html:48
+msgid "City"
+msgstr ""
+
+#: .\templates\checkout.html:54
+msgid "Address"
+msgstr ""
+
+#: .\templates\checkout.html:60
+msgid "ZIP"
+msgstr ""
+
+#: .\templates\checkout.html:67
+msgid "Pay"
+msgstr ""
+
+#: .\templates\contact.html:33
+msgid "Say Hello. Don't Be Shy!"
+msgstr ""
+
+#: .\templates\history.html:8
+msgid "Order History:"
+msgstr ""
+
+#: .\templates\history.html:11
+msgid "Id:"
+msgstr ""
+
+#: .\templates\history.html:12
+msgid "Items:"
+msgstr ""
+
+#: .\templates\history.html:13 .\templates\product_detail.html:27
+msgid "Total:"
+msgstr ""
+
+#: .\templates\history.html:14
+msgid "Datetime:"
+msgstr ""
+
+#: .\templates\history.html:15 .\templates\ticket_detail.html:7
+msgid "Status:"
+msgstr ""
+
+#: .\templates\index.html:13
+msgid "We Are Hexashop"
+msgstr ""
+
+#: .\templates\index.html:14
+msgid "Awesome, clean &amp; creative shop"
+msgstr ""
+
+#: .\templates\index.html:16
+msgid "Purchase Now!"
+msgstr ""
+
+#: .\templates\index.html:30 .\templates\index.html:35
+msgid "Women"
+msgstr ""
+
+#: .\templates\index.html:31
+msgid "Best Clothes For Women"
+msgstr ""
+
+#: .\templates\index.html:36 .\templates\index.html:56
+#: .\templates\index.html:76 .\templates\index.html:96
+msgid "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
+msgstr ""
+
+#: .\templates\index.html:38 .\templates\index.html:58
+#: .\templates\index.html:78 .\templates\index.html:98
+msgid "Discover More"
+msgstr ""
+
+#: .\templates\index.html:50 .\templates\index.html:55
+msgid "Men"
+msgstr ""
+
+#: .\templates\index.html:51
+msgid "Best Clothes For Men"
+msgstr ""
+
+#: .\templates\index.html:70 .\templates\index.html:75
+msgid "Kids"
+msgstr ""
+
+#: .\templates\index.html:71
+msgid "Best Clothes For Kids"
+msgstr ""
+
+#: .\templates\index.html:90 .\templates\index.html:95
+msgid "Accessories"
+msgstr ""
+
+#: .\templates\index.html:91
+msgid "Best Trend Accessories"
+msgstr ""
+
+#: .\templates\index.html:120
+msgid "Men's Latest"
+msgstr ""
+
+#: .\templates\index.html:175
+msgid "Women's Latest"
+msgstr ""
+
+#: .\templates\index.html:230
+msgid "Kid's Latest"
+msgstr ""
+
+#: .\templates\index.html:285
+msgid "Explore Our Products"
+msgstr ""
+
+#: .\templates\index.html:306
+msgid "Leather Bags"
+msgstr ""
+
+#: .\templates\index.html:307
+msgid "Latest Collection"
+msgstr ""
+
+#: .\templates\index.html:322
+msgid "Different Types"
+msgstr ""
+
+#: .\templates\index.html:323
+msgid "Over 304 Products"
+msgstr ""
+
+#: .\templates\index.html:340
+msgid "Social Media"
+msgstr ""
+
+#: .\templates\index.html:352
+msgid "Fashion"
+msgstr ""
+
+#: .\templates\index.html:363
+msgid "New"
+msgstr ""
+
+#: .\templates\index.html:374
+msgid "Brand"
+msgstr ""
+
+#: .\templates\index.html:385
+msgid "Makeup"
+msgstr ""
+
+#: .\templates\index.html:396
+msgid "Leather"
+msgstr ""
+
+#: .\templates\index.html:407
+msgid "Bag"
+msgstr ""
+
+#: .\templates\login.html:21
+msgid "Not registered?"
+msgstr ""
+
+#: .\templates\login.html:21
+msgid "Create an account"
+msgstr ""
+
+#: .\templates\product_detail.html:29
+msgid "Add To Cart"
+msgstr ""
+
+#: .\templates\products.html:11
+msgid "Check Our Products"
+msgstr ""
+
+#: .\templates\products.html:12
+msgid "Awesome &amp; Creative Shop"
+msgstr ""
+
+#: .\templates\products.html:27
+msgid "Our Latest Products"
+msgstr ""
+
+#: .\templates\products.html:28
+msgid "Check out all of our products."
+msgstr ""
+
+#: .\templates\products.html:36 .\templates\products.html:38
+msgid "All"
+msgstr ""
+
+#: .\templates\products.html:83
+msgid "Sorry, there are temporary no products!"
+msgstr ""
+
+#: .\templates\profile.html:13
+msgid "First Name:"
+msgstr ""
+
+#: .\templates\profile.html:17
+msgid "Last Name:"
+msgstr ""
+
+#: .\templates\profile.html:21
+msgid "Date Joined:"
+msgstr ""
+
+#: .\templates\profile.html:25
+msgid "My Favourites"
+msgstr ""
+
+#: .\templates\profile.html:26
+msgid "History"
+msgstr ""
+
+#: .\templates\profile.html:30
+msgid "Show Tickets"
+msgstr ""
+
+#: .\templates\ticket_detail.html:9
+msgid "Open"
+msgstr ""
+
+#: .\templates\ticket_detail.html:11
+msgid "Closed"
+msgstr ""
+
+#: .\templates\tickets.html:9
+msgid "Id"
+msgstr ""
+
+#: .\templates\tickets.html:10
+msgid "Email"
+msgstr ""
+
+#: .\templates\tickets.html:11
+msgid "Date and Time"
+msgstr ""
+
+#: .\templates\tickets.html:12
+msgid "Action"
+msgstr ""

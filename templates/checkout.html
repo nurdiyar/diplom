@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load cart_tag %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <div class="page-heading" style="background: none">
+        <div class="container" align="center" style="width: 35vw">
+            <div class="card px-4">
+                <p class="h4 py-3">{% trans "Payment Details</p>
+                    <div class="row gx-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1" align="left">{% trans "Person Name" %}</p>
+                                <input class="form-control mb-3" type="text" placeholder="Name" required="required">
+                            </div>
+                        </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">{% trans "Card Number" %}</p>
+                            <input class="form-control mb-3" type="text" placeholder="1234 5678 9012 3456" required="required">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">{% trans "Expiry" %}</p>
+                            <input class="form-control mb-3" type="text" placeholder="MM/YYYY" required="required">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">CVV/CVC</p>
+                            <input class="form-control mb-3 pt-2 " type="password" placeholder="***" required="required">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p class="text mb-1" align="center">{% trans "Delivery" %} (+30$)</p>
+                        <input class="form-control mb-3 pt-2" type="checkbox" id="delivery" onchange="deliveryFunction()">
+                    </div>
+
+                    <div class="col-12 location" hidden="hidden">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">{% trans "Country" %}</p>
+                            <input class="form-control mb-3" type="text" placeholder="Kazakhstan">
+                        </div>
+                    </div>
+                    <div class="col-4 location" hidden="hidden">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">{% trans "City" %}</p>
+                            <input class="form-control mb-3" type="text" placeholder="Almaty">
+                        </div>
+                    </div>
+                    <div class="col-4 location" hidden="hidden">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">{% trans "Address" %}</p>
+                            <input class="form-control mb-3 pt-2 " type="password" placeholder="Collins Ave">
+                        </div>
+                    </div>
+                    <div class="col-4 location" hidden="hidden">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1" align="left">{% trans "ZIP" %}</p>
+                            <input class="form-control mb-3 pt-2 " type="password" placeholder="16501">
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="btn btn-outline-secondary mb-3" onclick="location.href='{% url 'buy_url' %}'">
+                            <span class="ps-3" id="total">{% trans "Pay" %} ${{ total }}</span>
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function deliveryFunction() {
+            let total = {{ total }};
+            if (document.getElementById('delivery').checked) {
+                total += 30;
+                for (let div of document.getElementsByClassName('location')) {
+                    div.hidden = '';
+                }
+            } else {
+                for (let div of document.getElementsByClassName('location')) {
+                    div.hidden = 'hidden';
+                }
+            }
+            document.getElementById('total').innerHTML = 'Pay $' + total;
+        }
+    </script>
+{% endblock content %}

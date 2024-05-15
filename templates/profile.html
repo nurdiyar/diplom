@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <div class="page-heading about-page-heading" id="top" style="background: none">
+        <div class="profile" align="center">
+            <table style="width: 30vw">
+                <tr style="border-bottom: 1px solid black;">
+                    <td>{% trans "Email:" %}</td>
+                    <td align="right">{{ user.email }}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>{% trans "First Name:" %}</td>
+                    <td align="right">{{ user.first_name }}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>{% trans "Last Name:" %}</td>
+                    <td align="right">{{ user.last_name }}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>{% trans "Date Joined:" %}</td>
+                    <td align="right">{{ user.date_joined }}</td>
+                </tr>
+                <tr>
+                    <td align="left"><a href="{% url 'favourites_url' %}">{% trans "My Favourites" %}</a></td>
+                    <td align="right"><a href="{% url 'history_url' %}">{% trans "History" %}</a></td>
+                </tr>
+                {% if user.is_staff %}
+                    <tr>
+                        <td><a href="{% url 'tickets_url' %}">{% trans "Show Tickets" %}</a></td>
+                    </tr>
+                {% endif %}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <br><br>
+    <!-- ***** Product Area Starts ***** -->
+    <section class="section" id="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                <div class="left-images">
+                    <img src="{{ product.thumb.url }}" alt="">
+                    {% for image in product.images.all %}
+                        <img src="{{ image.image.url }}" alt="">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="right-content">
+                    <h4>{{ product.name }}</h4>
+                    <span class="price">${{ product.price }}</span>
+                    <span>{{ product.description }}</span>
+                    <div class="quote">
+                        <i class="fa fa-quote-left"></i><p>{{ product.brand.name }}</p>
+                    </div>
+                    <div class="total">
+                        <h4>{% trans "Total:"%} ${{ product.price }}</h4>
+                        <div class="main-border-button">
+                            <a onclick="addCart(this.id)" id="{{ product.id }}">{% trans "Add To Cart" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function addCart(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        document.getElementById(product_id).innerHTML = 'Added!';
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'cart_add' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+    </script>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <div class="page-heading about-page-heading" id="top" style="background: none">
+        <div class="container">
+            <table style="width: 80vw;">
+                <tr>
+                    <th>{% trans "Id" %}</th>
+                    <th>{% trans "Email" %}</th>
+                    <th>{% trans "Date and Time" %}</th>
+                    <th>{% trans "Action" %}</th>
+                </tr>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.pk }}</td>
+                        <td>{{ ticket.email }}</td>
+                        <td>{{ ticket.created_at }}</td>
+                        <td><a href="{% url 'ticket_url' ticket.id %}">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

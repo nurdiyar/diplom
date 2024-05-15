@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="page-heading" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>{% trans "Check Our Products" %}</h2>
+                        <span>{% trans "Awesome &amp; Creative Shop" %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+
+    <!-- ***** Products Area Starts ***** -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading" style="margin-bottom: 20px;">
+                        <h2>{% trans "Our Latest Products" %}</h2>
+                        <span>{% trans "Check out all of our products." %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div align="center" style="margin-bottom: 20px;">
+            <select onchange="filterProducts()" id="category_select">
+                {% if selected_category == 'All' %}
+                    <option selected>{% trans "All" %}</option>
+                {% else %}
+                    <option>{% trans "All" %}</option>
+                {% endif %}
+                {% for category in categories %}
+                    {% if selected_category == category.name %}
+                        <option value="{{ category.pk }}" selected>{{ category.name }}</option>
+                    {% else %}
+                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <div class="thumb">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'product_detail_url' product.id %}">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </li>
+                                        <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                            <a>
+                                                <i class="fa fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                            <a>
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <img src="{{ product.thumb.url }}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <h4>{{ product.name }}</h4>
+                                <span>${{ product.price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <h3>{% trans "Sorry, there are temporary no products!" %}</h3>
+                {% endfor %}
+                <div class="col-lg-12">
+                    <div class="pagination">
+                        <ul>
+                            {% for page in pages %}
+                                <li class="{{ page.active }}">
+                                    <a href="{% url page.url %}?page={{ page.num }}">{{ page.num }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Products Area Ends ***** -->
+    <script>
+        function filterProducts() {
+            let category_select = document.getElementById('category_select');
+            if (category_select.value) {
+                window.location.href = window.location.href.split('?')[0] + '?category=' + category_select.value;
+            }
+        };
+
+        function addFavourite(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = document.getElementById(product_id).children[0].children[0];
+                        if (icon.classList.contains('fa-star')) {
+                            icon.classList.remove('fa-star');
+                            icon.classList.add('fa-star-o');
+                        } else {
+                            icon.classList.remove('fa-star-o');
+                            icon.classList.add('fa-star');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'add_favourites_api_url' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+
+        function addCart(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = document.getElementById(product_id).children[0].children[0];
+                        if (icon.classList.contains('fa-shopping-cart')) {
+                            icon.classList.remove('fa-shopping-cart');
+                            icon.classList.add('fa-trash-o');
+                        } else {
+                            icon.classList.remove('fa-trash-o');
+                            icon.classList.add('fa-shopping-cart');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'cart_add' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+    </script>
+{% endblock content %}

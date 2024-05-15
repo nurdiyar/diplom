@@ -1,0 +1,532 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner" id="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <div class="thumb">
+                            <div class="inner-content">
+                                <h4>{% trans "We Are Hexashop" %}</h4>
+                                <span>{% trans "Awesome, clean &amp; creative shop" %}</span>
+                                <div class="main-border-button">
+                                    <a href="{% url 'women_url' %}">{% trans "Purchase Now!" %}</a>
+                                </div>
+                            </div>
+                            <img src="{% static 'images/left-banner-image.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{% trans "Women" %}</h4>
+                                            <span>{% trans "Best Clothes For Women" %}</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{% trans "Women" %}</h4>
+                                                <p>{% trans "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid." %}</p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'women_url' %}">{% trans "Discover More" %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{% static 'images/baner-right-image-01.jpg' %}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{% trans "Men" %}</h4>
+                                            <span>{% trans "Best Clothes For Men" %}</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{% trans "Men" %}</h4>
+                                                <p>{% trans "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid." %}</p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'men_url' %}">{% trans "Discover More" %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{% static 'images/baner-right-image-02.jpg' %}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{% trans "Kids" %}</h4>
+                                            <span>{% trans "Best Clothes For Kids" %}</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{% trans "Kids" %}</h4>
+                                                <p>{% trans "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid." %}</p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'kid_url' %}">{% trans "Discover More" %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{% static 'images/baner-right-image-03.jpg' %}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{% trans "Accessories" %}</h4>
+                                            <span>{% trans "Best Trend Accessories" %}</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{% trans "Accessories" %}</h4>
+                                                <p>{% trans "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid." %}</p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'accessories_url' %}">{% trans "Discover More" %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{% static 'images/baner-right-image-04.jpg' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** Men Area Starts ***** -->
+    <section class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>{% trans "Men's Latest" %}</h2>
+                        <span>{% trans "Details to details is what makes Hexashop different from the other themes." %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            {% for product in mens %}
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'product_detail_url' product.id %}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{ product.thumb.url }}" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>{{ product.name }}</h4>
+                                        <span>${{ product.price }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Men Area Ends ***** -->
+
+    <!-- ***** Women Area Starts ***** -->
+    <section class="section" id="women">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>{% trans "Women's Latest" %}</h2>
+                        <span>{% trans "Details to details is what makes Hexashop different from the other themes." %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+                            {% for product in womens %}
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'product_detail_url' product.id %}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{ product.thumb.url }}" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>{{ product.name }}</h4>
+                                        <span>${{ product.price }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Women Area Ends ***** -->
+
+    <!-- ***** Kids Area Starts ***** -->
+    <section class="section" id="kids">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>{% trans "Kid's Latest" %}</h2>
+                        <span>{% trans "Details to details is what makes Hexashop different from the other themes." %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="kid-item-carousel">
+                        <div class="owl-kid-item owl-carousel">
+                            {% for product in kids %}
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'product_detail_url' product.id %}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{ product.thumb.url }}" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>{{ product.name }}</h4>
+                                        <span>${{ product.price }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Kids Area Ends ***** -->
+
+    <!-- ***** Explore Area Starts ***** -->
+    <section class="section" id="explore">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <h2>{% trans "Explore Our Products" %}</h2>
+                        <span>{% trans "Welcome to our online store, where style meets comfort and quality.
+                            Embark on a journey through our vast array of products meticulously curated to cater to your
+                            fashion needs. From timeless classics to trendy essentials, our collection has something for
+                            everyone." %}</span>
+                        <p>{% trans "Comfort is paramount in our selection process. Dive into a realm of unparalleled comfort with
+                            our carefully selected fabrics and designs. From cozy loungewear to chic activewear, our
+                            products are designed to seamlessly blend style with functionality, ensuring that you look and
+                            feel your best, no matter the occasion." %}</p>
+                        <p>{% trans "At our online store, we prioritize customer satisfaction above all else. With user-friendly
+                            navigation and a seamless shopping experience, finding your perfect ensemble has never been
+                            easier. Explore our products with confidence, knowing that each item has been chosen with your
+                            utmost satisfaction in mind. Join us on this exciting journey and elevate your wardrobe to new
+                            heights of style and sophistication." %}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="leather">
+                                    <h4>{% trans "Leather Bags" %}</h4>
+                                    <span>{% trans "Latest Collection" %}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="first-image">
+                                    <img src="{% static 'images/explore-image-01.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="second-image">
+                                    <img src="{% static 'images/explore-image-02.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="types">
+                                    <h4>{% trans "Different Types" %}</h4>
+                                    <span>{% trans "Over 304 Products" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Explore Area Ends ***** -->
+
+    <!-- ***** Social Area Starts ***** -->
+    <section class="section" id="social">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>{% trans "Social Media" %}</h2>
+                        <span>{% trans "Details to details is what makes Hexashop different from the other themes." %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row images">
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>{% trans "Fashion" %}</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{% static 'images/instagram-01.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>{% trans "New" %}</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{% static 'images/instagram-02.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>{% trans "Brand" %}</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{% static 'images/instagram-03.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>{% trans "Makeup" %}</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{% static 'images/instagram-04.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>{% trans "Leather" %}</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{% static 'images/instagram-05.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>{% trans "Bag" %}</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{% static 'images/instagram-06.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Social Area Ends ***** -->
+
+    <!-- ***** Subscribe Area Starts ***** -->
+    <div class="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="section-heading">
+                        <h2>{% trans "By Subscribing To Our Newsletter You Can Get 30% Off" %}</h2>
+                        <span>{% trans "Details to details is what makes Hexashop different from the other themes." %}</span>
+                    </div>
+                    <form id="subscribe" action="" method="get">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <fieldset>
+                                    <input name="name" type="text" id="name" placeholder="Your Name" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-5">
+                                <fieldset>
+                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
+                                           placeholder="Your Email Address" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-2">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="main-dark-button"><i
+                                            class="fa fa-paper-plane"></i></button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li>{% trans "Store Location:" %}<br><span>РК Алматы ул. Абая 8а </span></li>
+                                <li>{% trans "Phone:" %}<br><span>+ 7 (727) 259-80-00</span></li>
+                                <li>{% trans "Office Location:" %}<br><span>РК Алматы ул. Абая 8а </span></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                                <li>{% trans "Work Hours:" %}<br><span>Понедельник — Пятница: с 09.00 до 18.00</span></li>
+                                <li>{% trans "Email:" %}<br><span>info@company.com</span></li>
+                                <li>{% trans "Social Media:" %}<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>, <a href="#">Linkedin</a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addFavourite(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = document.getElementById(product_id).children[0].children[0];
+                        if (icon.classList.contains('fa-star')) {
+                            icon.classList.remove('fa-star');
+                            icon.classList.add('fa-star-o');
+                        } else {
+                            icon.classList.remove('fa-star-o');
+                            icon.classList.add('fa-star');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'add_favourites_api_url' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+
+        function addCart(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = document.getElementById(product_id).children[0].children[0];
+                        if (icon.classList.contains('fa-shopping-cart')) {
+                            icon.classList.remove('fa-shopping-cart');
+                            icon.classList.add('fa-trash-o');
+                        } else {
+                            icon.classList.remove('fa-trash-o');
+                            icon.classList.add('fa-shopping-cart');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'cart_add' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+    </script>
+    <!-- ***** Subscribe Area Ends ***** -->
+{% endblock content %}
